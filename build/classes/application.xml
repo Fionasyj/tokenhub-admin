@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop  
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<context:property-placeholder
+		location="classpath:jdbc.properties" />
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 连接池启动时的初始值 -->
+		<property name="initialSize" value="${jdbc.initialSize}" />
+		<!-- 连接池的最大值 -->
+		<property name="maxActive" value="${jdbc.maxActive}" />
+		<!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+		<property name="maxIdle" value="${jdbc.maxIdle}" />
+		<!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+		<property name="minIdle" value="${jdbc.minIdle}" />
+		<!-- 配置60分钟自动连接一次数据库 -->
+		<property name="maxWait" value="600000" />
+		<property name="timeBetweenEvictionRunsMillis" value="600000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+	</bean>
+
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 由spring管理事务 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<aop:config>
+		<aop:pointcut id="transactionPointcut"
+			expression="execution(* com.yinzhi.platform.module.*.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="transactionPointcut" />
+	</aop:config>
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"
+				propagation="NOT_SUPPORTED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">error</prop>
+				<prop key="java.sql.SQLException">error</prop>
+				<prop key="java.lang.Throwable">error</prop>
+			</props>
+		</property>
+		<property name="statusCodes">
+			<props>
+				<prop key="errors/error">500</prop>
+				<prop key="errors/404">404</prop>
+			</props>
+		</property>
+		<!-- 设置日志输出级别，不定义则默认不输出警告等错误日志信息 -->
+		<property name="warnLogCategory" value="WARN"></property>
+		<!-- 默认错误页面，当找不到上面mappings中指定的异常对应视图时，使用本默认配置 -->
+		<property name="defaultErrorView" value="errors/error"></property>
+		<!-- 默认HTTP状态码 -->
+		<property name="defaultStatusCode" value="500"></property>
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">
+	</bean>
+
+
+	<context:component-scan
+		base-package="com.yinzhi.platform.module.*.dao" />
+	<context:component-scan
+		base-package="com.yinzhi.platform.module.*.service.impl" />
+
+	<!-- <import resource="activiti.xml" /> -->
+	
+</beans>

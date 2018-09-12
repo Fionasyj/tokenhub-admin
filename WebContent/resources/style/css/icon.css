@@ -1,0 +1,156 @@
+﻿/*确认*/
+.icon-01 {
+	background: url(../images/icons/tick.png) no-repeat;
+}
+/*取消*/
+.icon-02 {
+	background: url(../images/icons/cross.png) no-repeat;
+}
+
+/*主页*/
+.icon-000 {
+	background: url(../images/icons/house.png) no-repeat;
+}
+/*刷新*/
+.icon-reload {
+	background: url(../images/icons/arrow_refresh_small.png) no-repeat;
+}
+/*新建*/
+.icon-add {
+	background: url(../images/icons/application_add.png) no-repeat;
+}
+/*修改*/
+.icon-edit {
+	background: url(../images/icons/application_edit.png) no-repeat;
+}
+/*删除*/
+.icon-remove {
+	background: url(../images/icons/application_delete.png) no-repeat;
+}
+/*查询*/
+.icon-query {
+	background: url(../images/icons/magnifier.png) no-repeat;
+}
+
+/*用户管理*/
+.icon-005 {
+	background: url(../images/icons/user.png) no-repeat;
+}
+/*角色管理*/
+.icon-006 {
+	background: url(../images/icons/group.png) no-repeat;
+}
+/*系统管理*/
+.icon-007 {
+	background: url(../images/icons/monitor.png) no-repeat;
+}
+/*菜单管理*/
+.icon-008 {
+	background: url(../images/icons/application_link.png) no-repeat;
+}
+/*角色 配置*/
+.icon-09 {
+	background: url(../images/icons/application_side_list.png) no-repeat;
+}
+/*用户 授权*/
+.icon-010 {
+	background: url(../images/icons/key.png) no-repeat;
+}
+/*资源管理*/
+.icon-011 {
+	background: url(../images/icons/database_gear.png) no-repeat;
+}
+/*部门管理*/
+.icon-012 {
+	background: url(../images/icons/application_form.png) no-repeat;
+}
+/*流程管理*/
+.icon-013 {
+	background: url(../images/icons/application_go.png) no-repeat;
+}
+/*流程发布*/
+.icon-014 {
+	background: url(../images/icons/application_get.png) no-repeat;
+}
+/*显示流程图*/
+.icon-015 {
+	background: url(../images/icons/chart_curve.png) no-repeat;
+}
+/*报表管理*/
+.icon-016 {
+	background: url(../images/icons/application_view_detail.png) no-repeat;
+}
+
+/*展开*/
+.icon-017 {
+	background: url(../images/icons/arrow_out.png) no-repeat;
+}
+
+/*关闭*/
+.icon-018 {
+	background: url(../images/icons/arrow_in.png) no-repeat;
+}
+/*用户日志*/
+.icon-019 {
+	background: url(../images/icons/report_user.png) no-repeat;
+}
+/*法院徽章*/
+.icon-020 {
+	background: url(../images/timg.jpg) no-repeat;
+}
+/*Excel*/
+.icon-035 {
+	background:url(../images/icons/page_excel.png) no-repeat;
+}
+/*Excel*/
+.icon-036 {
+	background:url(../images/icons/chart_pie.png) no-repeat;
+}
+/*报表*/
+.icon-037 {
+	background:url(../images/icons/chart_bar.png) no-repeat;
+}
+/*筛选*/
+.icon-filter {
+	background: url(../images/icons/193632219.gif) no-repeat;
+}
+/*标记*/
+.icon-mark {
+	background: url(../images/icons/19363274.gif) no-repeat;
+}
+/*启用*/
+.icon-start {
+	background: url(../images/icons/193632764.gif) no-repeat;
+}
+/*聊天室*/
+.icon-chatroom {
+	background: url(../images/icons/19363278.gif) no-repeat;
+}
+/*禁用用户*/
+.icon-forbiduser {
+	background: url(../images/icons/193632904.gif) no-repeat;
+}
+/*推送*/
+.icon-push {
+	background: url(../images/icons/193632752.gif) no-repeat;
+}
+/*快讯*/
+.icon-flush {
+	background: url(../images/icons/193632678.gif) no-repeat;
+}
+/*轮播*/
+.icon-carousel {
+	background: url(../images/icons/193632627.gif) no-repeat;
+}
+/*信息*/
+.icon-message {
+	background: url(../images/icons/19363215.gif) no-repeat;
+}
+/*tokenhub*/
+.icon-tokenhub {
+	background: url(../images/icons/193632142.gif) no-repeat;
+}
+/*解禁*/
+.icon-release {
+	background: url(../images/icons/19363236.gif) no-repea;
+}

@@ -1,0 +1,173 @@
+﻿html, body {
+	font-size: 12px;
+	font: normal 12px verdana;
+	font-family: 宋体;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	overflow: hidden;
+	height: 100%;
+}
+
+input {
+	border: 1px solid #95B8E7;
+	height: 23px;
+	font-family: 宋体;
+	font-size: 12px;
+	margin-left: 2px;
+}
+
+/*easyui begin*/
+.dialog-button {
+	text-align: center;
+}
+
+.dialog-button .l-btn {
+	margin-left: 15px;
+}
+
+/*easyui tree选中颜色*/
+.tree-node-selected {
+	background: #EBEDF3;
+}
+/*easyui grid选中颜色*/
+.datagrid-row-selected {
+	background: #EBEDF3;
+}
+/*easyui combo选中颜色*/
+.combobox-item-selected {
+	background-color: #EBEDF3;
+	color: #000000;
+}
+
+/*easyui dialog背景色*/
+.dialog-content {
+	overflow: auto;
+	background-color: #F5FCFE;
+}
+
+.progressbar-value .progressbar-text {
+	background-color: #28EA06;
+	color: #000000;
+}
+
+/*导般背景色*/
+.accordion .accordion-header-selected {
+	background: #E0ECFF;
+}
+
+/*面板头字体*/
+.panel-title {
+	font-weight: normal;
+	color: #0E2D5F;
+	height: 16px;
+	line-height: 16px;
+}
+
+/*表格工具条背景色*/
+.datagrid-pager {
+	background: #E0ECFF;
+}
+
+/*列表序号宽度*/
+.datagrid-header-rownumber, .datagrid-cell-rownumber {
+	width: 38px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+/*隐藏分页下拉条*/
+.pagination-page-list {
+	margin: 0px 6px;
+	padding: 1px 2px;
+	width: auto;
+	height: auto;
+	border-width: 1px;
+	border-style: solid;
+	display: none;
+}
+/*easyui end*/
+a {
+	color: #0a4173;
+	text-decoration: none;
+}
+
+/*框架头样式*/
+.title {
+	float: left;
+	width: 300px;
+	height: 50px;
+	font: normal 16px tahoma, arial, sans-serif;
+	color: #2d537a;
+	text-indent: -3000px;
+	background: transparent url(../images/logo.jpg) no-repeat 0 0;
+}
+
+.header {
+	border: 0 none;
+	background: #1E4176 url(../images/head_bg.png) repeat-x 0 0;
+}
+
+.bottom {
+	border: 0 none;
+	background: #1E4176 url(../images/bottom.png) repeat-x 0 0;
+}
+
+.login {
+	margin-right: 10px;
+	padding-left: 18px;
+	background: url(../images/icons/user.png) no-repeat;
+}
+.project_name {
+	font: 22px/1 Tahoma,Helvetica,Arial,"KaiTi",sans-serif;
+	font-weight:bold;
+	color:#1C86EE;
+}
+.logout {
+	margin-right: 10px;
+	padding-left: 18px;
+	background: url(../images/icons/user_go.png) no-repeat;
+}
+.help {
+	margin-right: 10px;
+	padding-left: 18px;
+	background: url(../images/icons/book_open.png) no-repeat;
+}
+
+.editpass {
+	margin-right: 10px;
+	padding-left: 18px;
+	background: url(../images/icons/user_edit.png) no-repeat;
+}
+
+.links {
+	float: right;
+	margin-right: 5px;
+	line-height: 1em;
+}
+/*框架头样式*/
+
+/*from表单样式*/
+.centerdiv {
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #B7D9FA;
+	background-color: #F5FCFE;
+}
+
+.centertable {
+	border-spacing: 4px;
+	vertical-align: center;
+	font-size: 12px;
+	width: 100%;
+	background-color: #F5FCFE;
+}
+
+.buttomdiv {
+	text-align: center;
+	padding: 5px 0;
+	border-style: none;
+	background-color: #F5FCFE;
+}
+/*from表单样式*/

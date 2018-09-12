@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<context:component-scan
+		base-package="com.yinzhi.platform.module.*.controller" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.yinzhi.platform.interceptor.AuthorizeInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> 
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				<!-- <property name="objectMapper" ref="jacksonObjectMapper" /> -->
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- <bean id="jacksonObjectMapper" class="org.codehaus.jackson.map.ObjectMapper" 
+		/> <bean id="jacksonSerializationConfig" class="org.codehaus.jackson.map.SerializationConfig" 
+		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" 
+		/> <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"> 
+		<property name="targetObject" ref="jacksonSerializationConfig" /> <property 
+		name="targetMethod" value="setDateFormat" /> <property name="arguments"> 
+		<list> <value type="java.text.SimpleDateFormat">yyyy-MM-dd hh:mm:ss</value> 
+		</list> </property> </bean> 解决json日期格式化问题 -->
+
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/classes/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+ 
+</beans>
